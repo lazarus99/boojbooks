@@ -3,4 +3,8 @@
 
 A simple book list application, created for the Booj Reading List project.
 
-THis is the first Laravel application I've ever written.
+This is the first Laravel application I've ever written.
+
+Try the app live at: http://intense-basin-21129.herokuapp.com/books
+
+Getting everything running on Heroku was a bit of a pain.
