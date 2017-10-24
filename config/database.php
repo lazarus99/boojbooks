@@ -1,6 +1,11 @@
 <?php
 
-$dbUrl = parse_url(env("CLEARDB_DATABASE_URL"));
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+$host = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$database = substr($url["path"], 1);
 return [
     /*
       |--------------------------------------------------------------------------
@@ -37,11 +42,12 @@ return [
         ],
         'mysql' => [
             'driver' => 'mysql',
-            'host' => isset($dbUrl["host"]) ? $dbUrl["host"] : env("DB_HOST"),
-            'port' => isset($dbUrl["port"]) ? $dbUrl["port"] : env("DB_PORT"),
-            'database' => isset($dbUrl["path"]) ? ltrim($dbUrl["path"], '/') : env("DB_DATABASE"),
-            'username' => isset($dbUrl["user"]) ? $dbUrl["user"] : env("DB_USERNAME"),
-            'password' => isset($dbUrl["pass"]) ? $dbUrl["pass"] : env("DB_PASSWORD"),
+            'host' => env('DB_HOST', $host),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', $database),
+            'username' => env('DB_USERNAME', $username),
+            'password' => env('DB_PASSWORD', $password),
+            'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
