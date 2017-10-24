@@ -5,7 +5,8 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Welcome back to Book List. Please login to continue</div>
+                <div class="panel-heading">Welcome back to Book List. Please login to continue. Click the register link 
+                if you don't already have an account</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
